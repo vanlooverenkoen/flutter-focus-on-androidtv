@@ -3,11 +3,11 @@ import 'package:flutter_tv/model/movie.dart';
 
 class MovieListItem extends StatefulWidget {
   final Movie movie;
-  final bool autoFocus;
+  // final bool autoFocus;
 
   const MovieListItem({
     required this.movie,
-    this.autoFocus = false,
+    // this.autoFocus = false,
     super.key,
   });
 
@@ -35,7 +35,7 @@ class _MovieListItemState extends State<MovieListItem> {
   @override
   Widget build(BuildContext context) {
     return Focus(
-      autofocus: widget.autoFocus,
+      // autofocus: widget.autoFocus,
       focusNode: _focusNode,
       child: AspectRatio(
         aspectRatio: 9 / 16,

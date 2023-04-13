@@ -57,7 +57,7 @@ class MovieListScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return MovieListItem(
                   movie: MovieListScreen.movies[index],
-                  autoFocus: index == 0,
+                  // autoFocus: index == 0,
                 );
               },
             ),
