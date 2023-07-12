@@ -7,38 +7,40 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
-          SizedBox(
-            height: 100,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 20,
-              itemBuilder: (BuildContext context, int index) => ElevatedButton(
-                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text('Pressed on button $index'),
-                  duration: const Duration(milliseconds: 500),
-                )),
-                child: Text('Button $index'),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (BuildContext context, int index) => ElevatedButton(
+                  onPressed: () => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text('Pressed on button $index'),
+                    duration: const Duration(milliseconds: 500),
+                  )),
+                  child: Text('Button $index'),
+                ),
               ),
             ),
-          ),
-          // const SizedBox(height: 32),
-          // SizedBox(
-          //   height: 100,
-          //   child: ListView.builder(
-          //     scrollDirection: Axis.horizontal,
-          //     itemCount: 20,
-          //     itemBuilder: (BuildContext context, int index) => ElevatedButton(
-          //       onPressed: () => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          //         content: Text('Pressed on button $index'),
-          //         duration: const Duration(milliseconds: 500),
-          //       )),
-          //       child: Text('Button $index'),
-          //     ),
-          //   ),
-          // ),
-        ],
+            const SizedBox(width: 32),
+            Expanded(
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (BuildContext context, int index) => ElevatedButton(
+                  style: const ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll<Color>(Colors.green),
+                  ),
+                  onPressed: () => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text('Pressed on button $index'),
+                    duration: const Duration(milliseconds: 500),
+                  )),
+                  child: Text('Button $index'),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
